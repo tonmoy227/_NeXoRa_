@@ -1,0 +1,153 @@
+.nxr-about-title {
+	@media #{$lg,$md,$sm,$xs,$xxs} {
+		gap: 25px;
+		flex-wrap: wrap;
+	}
+	.subtitle {
+		color: #000000;
+		font-weight: 500;
+		font-family: var(--nxr-space);
+		i {
+			font-style: normal;
+			color: var(--nxr-prime-c);
+		}
+		span {
+			font-family: var(--nxr-inter);
+		}
+	}
+
+	.ab_title {
+		color: #000000;
+		font-size: 52px;
+		max-width: 1030px;
+		letter-spacing: -1px;
+		font-family: var(--nxr-space);
+		b {
+			font-weight: 500;
+			color: var(--nxr-prime-c);
+		}
+		span {
+			display: inline;
+			color: #00000066;
+			font-style: italic;
+			font-family: var(--nxr-playfair);
+		}
+	}
+}
+
+.nxr-about-content {
+	gap: 60px;
+	@media #{$xl,$lg,$md,$sm,$xs,$xxs} {
+		gap: 30px;
+	}
+	@media #{$lg,$md,$sm,$xs,$xxs} {
+		flex-wrap: wrap;
+		justify-content: center !important;
+	}
+}
+
+.nxr-about-img-wrap {
+	width: 100%;
+	height: 640px;
+	max-width: 528px;
+	overflow: hidden;
+	border-radius: 24px;
+}
+
+.nxr-about-text-wrap {
+	width: 100%;
+	max-width: 972px;
+	padding-top: 28px;
+	@media #{$xl,$lg,$md,$sm,$xs,$xxs} {
+		padding-top: 0;
+	}
+	.nxr-about-desc {
+		max-width: 426px;
+		padding-top: 20px;
+		@media #{$xl,$lg,$md,$sm,$xs,$xxs} {
+			padding-top: 0;
+		}
+		p {
+			font-size: 18px;
+		}
+	}
+}
+
+.nxr-about-text-img {
+	gap: 30px;
+	@media #{$md,$sm,$xs,$xxs} {
+		flex-wrap: wrap;
+		justify-content: center !important;
+	}
+}
+
+.nxr-ab-img {
+	.item-img {
+		overflow: hidden;
+		border-radius: 24px;
+		border: 4px solid #FFFFFF;
+	}
+}
+
+.nxr-about-card-wrap {
+	gap: 5px;
+	padding: 5px;
+	display: grid;
+	border-radius: 16px;
+	background-color: #000000;
+	grid-template-columns: 1fr 1fr 1fr;
+	@media #{$md,$sm} {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media #{$xs,$xxs} {
+		grid-template-columns: 1fr;
+	}
+}
+
+.nxr-ab-card {
+	overflow: hidden;
+	border-radius: 16px;
+	padding: 28px 28px 22px;
+	background-color: #F5F5F5;
+	.ab-shape1 {
+		top: -55%;
+		left: -45%;
+		transform: scale(0);
+		transition: all 800ms ease-in-out;
+	}
+	.ab-shape2 {
+		bottom: -90%;
+		right: -54%;
+		transform: scale(0);
+		transition: all 800ms ease-in-out;
+	}
+	.item-icon {
+		width: 52px;
+		height: 52px;
+		margin-bottom: 22px;
+		position: relative;
+		border-radius: 16px;
+		.inner-box {
+			top: 0;
+			left: 0;
+			position: absolute;
+		}
+	}
+	.item-text {
+		h3 {
+			font-size: 20px;
+			font-weight: 500;
+			padding-bottom: 8px;
+			letter-spacing: -1px;
+		}
+		p {
+			line-height: 1.5;
+		}
+	}
+	&:hover {
+		.ab-shape1,
+		.ab-shape2 {
+			transform: scale(1);
+		}
+	}
+}

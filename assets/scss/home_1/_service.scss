@@ -1,0 +1,145 @@
+.nxr-service-sec {
+	padding: 0px 20px;
+}
+
+.nxr-service-wrapper {
+	overflow: hidden;
+	border-radius: 32px;
+	padding-bottom: 240px;
+}
+
+.nxr-service-title {
+	z-index: 6;
+	max-width: 420px;
+	position: relative;
+	.subtitle {
+		color: #FFFFFF;
+		font-weight: 500;
+		margin-bottom: 12px;
+		font-family: var(--nxr-space);
+		i {
+			font-style: normal;
+			color: var(--nxr-prime-c);
+		}
+		span {
+			font-family: var(--nxr-inter);
+		}
+	}
+	.ser_title {
+		color: #fff;
+		line-height: 1;
+		font-size: 80px;
+		font-weight: 700;
+		letter-spacing: -2px;
+	}
+}
+
+.nxr-service-card-wrapper {
+	width: 100%;
+	max-width: 700px;
+}
+
+.nxr-ser-card-item {
+	top: 0;
+	right: 0;
+	padding: 10px;
+	max-width: 440px;
+	// position: absolute;
+	border-radius: 20px;
+	background-color: #FFAEAF;
+	box-shadow: -12px -12px 34px 0px #00000059;
+	transition: all 1200ms ease-in-out;
+	// &:is(.ver_1) {
+	// 	z-index: 5;
+	// 	position: relative;
+	// }
+	// &:is(.ver_2) {
+	// 	top: 5px;
+	// 	left: 150px;
+	// 	z-index: 4;
+	// 	transform: rotate(-12deg);
+	// 	background-color: #B8B1FE;
+	// }
+	// &:is(.ver_3) {
+	// 	top: 30px;
+	// 	left: 75px;
+	// 	z-index: 3;
+	// 	transform: rotate(-22deg);
+	// 	background-color: #FABE91;
+	// }
+	// &:is(.ver_4) {
+	// 	left: 23px;
+	// 	top: 50px;
+	// 	z-index: 2;
+	// 	transform: rotate(-32deg);
+	// 	background-color: #FFEDAA;
+	// }
+	// &:is(.ver_5) {
+	// 	left: -15px;
+	// 	top: 80px;
+	// 	z-index: 1;
+	// 	transform: rotate(-45deg);
+	// 	background-color: #D1FFB3;
+	// }
+	.inner-img {
+		overflow: hidden;
+		border-radius: 20px;
+	}
+	.inner-icon {
+		left: 36px;
+		bottom: 0;
+		width: 80px;
+		height: 80px;
+		display: flex;
+		align-items: center;
+		border-radius: 100%;
+		position: absolute;
+		justify-content: center;
+		background-color: #fff;
+		box-shadow: 0px 0px 12px 0px #B8213280 inset;
+
+	}
+	.item-text {
+		padding: 0px 26px 26px;
+		p {
+			opacity: .72;
+			color: #000000;
+			font-size: 18px;
+			padding-bottom: 25px;
+		}
+		.read_more {
+			gap: 8px;
+			opacity: .72;
+			color: #000000;
+			font-size: 15px;
+			font-weight: 500;
+			i {
+				width: 32px;
+				height: 32px;
+				display: flex;
+				align-items: center;
+				border-radius: 100%;
+				justify-content: center;
+				background-color: #fff;
+			}
+		}
+	}
+}
+
+.nxr-service-list-wrap {
+	padding-left: 40px;
+	li {
+		color: #FFFFFF;
+		line-height: 1;
+		font-size: 52px;
+		font-weight: 700;
+		text-align: right;
+		letter-spacing: -3px;
+		white-space: nowrap;
+		margin-bottom: 48px;
+		font-family: var(--nxr-space);
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
