@@ -1,0 +1,46 @@
+.nxr-work-pro-title {
+	gap: 15px;
+	.nxr-wrp-left-title {
+		text-align: right;
+	}
+	h3 {
+		color: #000000;
+		font-size: 52px;
+		font-weight: 700;
+		span {
+			opacity: .4;
+			font-style: italic;
+			font-family: var(--nxr-playfair);
+		}
+	}
+}
+
+.nxr-work-process-item {
+	margin: 0 auto;
+	padding: 12px;
+	max-width: 446px;
+	border-radius: 26px;
+	margin-bottom: 24px;
+	background-color: #fff;
+	.inner-item {
+		padding: 36px;
+		border-radius: 24px;
+		border: 1px solid #00000033;
+		.item-top {
+			h3 {
+				color: #000000;
+				font-size: 28px;
+				line-height: 1;
+				font-weight: 500;
+			}
+		}
+		.item-text {
+			opacity: .8;
+			color: #000000;
+			font-size: 18px;
+		}
+		.item-icon {
+			opacity: 0.3;
+		}
+	}
+}

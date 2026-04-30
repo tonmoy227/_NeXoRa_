@@ -1,0 +1,157 @@
+.nxr-sponsor-title {
+	@media #{$lg,$md,$sm,$xs,$xxs} {
+		gap: 25px;
+		flex-wrap: wrap;
+	}
+	.subtitle {
+		color: #000000;
+		font-weight: 500;
+		font-family: var(--nxr-space);
+		i {
+			font-style: normal;
+			color: var(--nxr-prime-c);
+		}
+		span {
+			font-family: var(--nxr-inter);
+		}
+	}
+
+	.ab_title {
+		color: #000000;
+		font-size: 52px;
+		font-weight: 700;
+		max-width: 1030px;
+		line-height: 1.05;
+		letter-spacing: -1px;
+		font-family: var(--nxr-space);
+		.blank-space1 {
+			width: 350px;
+			display: inline-block;
+			@media #{$md,$sm,$xs,$xxs} {
+				display: none;
+			}
+		}
+		b {
+			color: var(--nxr-prime-c);
+		}
+		span {
+			display: inline;
+			color: #00000066;
+			font-style: italic;
+			font-family: var(--nxr-playfair);
+		}
+	}
+}
+
+.nxr-sponsor-content {
+	gap: 45px;
+}
+.nxr-sponsor-img {
+	padding-bottom: 25px;
+	@media #{$md,$sm,$xs,$xxs} {
+		display: none;
+	}
+}
+
+.nxr-sponsor-wrapper {
+	width: 100%;
+	max-width: 1295px;
+}
+
+@keyframes partnerFlip {
+
+	0% {
+		transform: rotateY(0deg);
+	}
+
+	8% {
+		transform: rotateY(180deg);
+	}
+
+	16% {
+		transform: rotateY(360deg);
+	}
+
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+
+.nxr-sponsor-item-wrap {
+	gap: 5px;
+	display: grid;
+	perspective: 1000px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	@media #{$sm} {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	@media #{$xs} {
+		grid-template-columns: 1fr 1fr ;
+	}
+	@media #{$xxs} {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+.nxr-spon-item {
+	width: 100%;
+	height: 132px;
+	overflow: hidden;
+	display: flex;
+	max-width: 320px;
+	align-items: center;
+	border-radius: 12px;
+	background-color: #fff;
+	justify-content: center;
+	transform-style: preserve-3d;
+	animation: partnerFlip 8s infinite ease-in-out;
+	transition: 0.6s var(--cube-1);
+	transform-origin: center;
+	backface-visibility: visible;
+	@media #{$xxs} {
+		margin: 0 auto;
+	}
+	&:nth-child(1) {
+		animation-delay: 0s;
+	}
+	&:nth-child(2) {
+		animation-delay: 1s;
+	}
+	&:nth-child(3) {
+		animation-delay: 2s;
+	}
+	&:nth-child(4) {
+		animation-delay: 3s;
+	}
+	&:nth-child(5) {
+		animation-delay: 4s;
+	}
+	&:nth-child(6) {
+		animation-delay: 5s;
+	}
+	&:nth-child(7) {
+		animation-delay: 6s;
+	}
+	&:nth-child(8) {
+		animation-delay: 7s;
+	}
+	.spon-shape {
+		opacity: 0;
+		visibility: hidden;
+		transition: all 500ms ease-in-out;
+	}
+	.item-img {
+		height: 54px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&:hover {
+		box-shadow: 7px 8px 18px 0px #00000029;
+		.spon-shape {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}

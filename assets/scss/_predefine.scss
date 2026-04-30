@@ -272,6 +272,7 @@ a {
 		position: relative;
 		align-items: center;
 		span {
+			z-index: 1;
 			color: #fff;
 			font-size: 17px;
 			font-weight: 500;
@@ -333,6 +334,40 @@ a {
 		}
 	}
 }
+
+.nxr-sec-title {
+	.subtitle {
+		color: #000000;
+		font-weight: 500;
+		font-family: var(--nxr-space);
+		i {
+			font-style: normal;
+			color: var(--nxr-prime-c);
+		}
+		span {
+			font-family: var(--nxr-inter);
+		}
+	}
+	.sec_title {
+		color: #000000;
+		font-size: 52px;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -1px;
+		font-family: var(--nxr-space);
+		b {
+			font-weight: 500;
+			color: var(--nxr-prime-c);
+		}
+		span {
+			display: inline;
+			color: #00000066;
+			font-style: italic;
+			font-family: var(--nxr-playfair);
+		}
+	}
+}
+
 
 // txa-common-css-start
 
