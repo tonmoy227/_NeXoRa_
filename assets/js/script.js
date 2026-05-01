@@ -460,7 +460,7 @@ Last change:    00/00/00
 		let proTitle = gsap.timeline({
 			scrollTrigger: {
 				trigger: ".nxr-work-process-sec",
-				start: "top 20%", 
+				start: "top 0%", 
 				end: "top -30%",
 				toggleActions: "play none none reverse",
 				scrub: true,
