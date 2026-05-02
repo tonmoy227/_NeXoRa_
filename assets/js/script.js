@@ -472,7 +472,24 @@ Last change:    00/00/00
 		proTitle.to(".nxr-work-pro-title .nxr-wrp-right-title", { xPercent: 85},"<");
 	}
 
+	gsap.utils.toArray(".img-parallax").forEach(function(container) {
+		let image = container.querySelector("img");
 
+		let tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: container,
+				scrub: 3,
+				pin: false,
+			},
+		}); 
+		tl.from(image, {
+			yPercent: -40,
+			ease: "none",
+		}).to(image, {
+			yPercent: 40,
+			ease: "none",
+		}); 
+	});
 
 
 })(jQuery);

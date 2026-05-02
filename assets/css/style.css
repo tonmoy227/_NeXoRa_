@@ -95,16 +95,6 @@ Font load
 .nxr-header-section .dropdown-menu .dropdown:after {
   display: none;
 }
-.nxr-header-section .dropdown-menu .dropdown-menu {
-  top: 0px !important;
-  left: 100%;
-  transform-origin: 0 0 0;
-  -webkit-transform-origin: 0 0 0;
-  -ms-transform-origin: 0 0 0;
-  -o-transform-origin: 0 0 0;
-  -webkit-transform: scaleY(0) !important;
-          transform: scaleY(0) !important;
-}
 .nxr-header-section .dropdown-menu li {
   display: block;
   margin: 0px !important;
@@ -5545,13 +5535,16 @@ a:hover, a:focus {
   background: rgba(255, 255, 255, 0.1607843137);
 }
 
-.nxr-footer-bottom {
-  gap: 100px;
-}
 .nxr-footer-bottom li a {
   color: #fff;
   opacity: 0.8;
   font-size: 18px;
+}
+
+.nxr-footer-part1 {
+  gap: 100px;
+  width: 100%;
+  max-width: 1005px;
 }
 
 .nxr-ftr-img-part {
@@ -5572,13 +5565,67 @@ a:hover, a:focus {
 
 .nxr-footer-menu-part {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
 }
 .nxr-footer-menu-part .widget-title {
   color: #fff;
   font-size: 24px;
   font-weight: 500;
+  padding-bottom: 15px;
   letter-spacing: -1px;
+}
+.nxr-footer-menu-part li a {
+  width: 100%;
+  opacity: 0.8;
+  color: #fff;
+  line-height: 1;
+  font-size: 18px;
+  padding: 14px 0px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.nxr-footer-part2 {
+  width: 100%;
+  max-width: 258px;
+}
+.nxr-footer-part2 .ftr-cta-item {
+  margin-bottom: 42px;
+}
+.nxr-footer-part2 .ftr-cta-item:last-child {
+  margin-bottom: 0;
+}
+.nxr-footer-part2 .ftr-cta-item h3 {
+  opacity: 0.6;
+  color: #FFFFFF;
+  font-size: 16px;
+  padding-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+.nxr-footer-part2 .ftr-cta-item a {
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.nxr-ftr-copyright {
+  padding: 25px 0px;
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+}
+.nxr-ftr-copyright p {
+  color: #fff;
+}
+.nxr-ftr-copyright p a {
+  color: var(--nxr-prime-c);
+}
+.nxr-ftr-copyright .item-social a {
+  color: #FFFFFF;
+  margin-left: 28px;
+}
+.nxr-ftr-copyright .item-social a i {
+  margin-right: 8px;
+}
+.nxr-ftr-copyright .item-social a:hover {
+  color: var(--nxr-prime-c);
 }
 
 /*---------------------------------------------------- */
