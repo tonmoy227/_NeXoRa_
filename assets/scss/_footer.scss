@@ -1,0 +1,121 @@
+.nxr-footer-scroller {
+	display: flow-root;
+	.nxr-ftr-insta {
+		margin: 0px 4px;
+		display: inline-block;
+		.item-img {
+			width: 253px;
+			height: 264px;
+			overflow: hidden;
+			border-radius: 16px;
+		}
+	}
+}
+
+.nxr-inst-follow {
+	left: 0;
+	top: 50%;
+	right: 0;
+	text-align: center;
+	position: absolute;
+	transform: translateY(-50%);
+	a {
+		font-size: 32px;
+		box-shadow:
+		inset 0px 3px 3px 0px #B5B5B5,
+		inset 0px -4px 4px 0px #000000A3,
+		0px 0px 0px 2px #FFFFFF52;
+		font-family: var(--nxr-playfair);
+		color: var(--nxr-prime-c);
+		line-height: 1;
+		padding: 20px 24px;
+		border-radius: 16px;
+		position: relative;
+		background: linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
+		&:before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			padding: 2px;
+			border-radius: inherit;
+			background: linear-gradient(180deg, #F0F0F0 0%, #EDEDED 100%);
+			-webkit-mask:
+			linear-gradient(#fff 0 0) content-box,
+			linear-gradient(#fff 0 0);
+			-webkit-mask-composite: xor;
+			mask-composite: exclude;
+			pointer-events: none;
+		}
+	}
+}
+
+.nxr-footer-top {
+	h2 {
+		color: #fff;
+		width: 100%;
+		line-height: 1;
+		font-size: 92px;
+		max-width: 700px;
+		font-weight: 700;
+		letter-spacing: -2.5px;
+		span {
+			display: block;
+			font-style: italic;
+			color: var(--nxr-prime-c);
+			font-family: var(--nxr-playfair);
+		}
+	}
+	.nxr-footer-menu {
+		max-width: 960px;
+		margin-left: -140px;
+		li {
+			margin-left: 10px;
+			a {
+				color: #fff;
+				line-height: 1;
+				font-weight: 500;
+				padding: 15px 26px;
+				border-radius: 100px;
+				background: #FFFFFF29;
+			}
+		}
+	}
+}
+
+.nxr-footer-bottom {
+	gap: 100px;
+	li {
+		a {
+			color: #fff;
+			opacity: .8;
+			font-size: 18px;
+		}
+	}
+}
+
+
+.nxr-ftr-img-part {
+	width: 100%;
+	height: 288px;
+	max-width: 482px;
+	border-radius: 20px;
+	.item-img1 {
+		padding: 60px 50px 50px;
+	}
+	.item-img2 {
+		left: 0;
+		right: 0;
+		bottom: 0;
+		text-align: center;
+	}
+}
+.nxr-footer-menu-part {
+	width: 100%;
+	max-width: 400px;
+	.widget-title {
+		color: #fff;
+		font-size: 24px;
+		font-weight: 500;
+		letter-spacing: -1px;
+	}
+}
