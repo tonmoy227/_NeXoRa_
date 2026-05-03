@@ -11,7 +11,7 @@
 	display: flow-root;
 	background: #000000;
 	transform: rotate(-4deg);
-	@media #{$xs,$xxs} {
+	@media #{$md,$sm,$xs,$xxs} {
 		transform: rotate(0deg);
 	}
 	h3 {
@@ -29,7 +29,7 @@
 		margin-top: -50px;
 		transform: rotate(4deg);
 		background: linear-gradient(180deg, #E43649 0%, #B82132 100%);
-		@media #{$xs,$xxs} {
+		@media #{$md,$sm,$xs,$xxs} {
 			margin-top: 0;
 			transform: rotate(0deg);
 		}

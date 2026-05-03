@@ -103,7 +103,7 @@ body::-webkit-scrollbar-thumb {
 	width: 100%; 
 	height: 100%;
 	overflow: visible;
-	background-color: #fff;
+	background-color: #010101;
 	.preloader-logo {
 		left: 0;
 		top: 50%;
@@ -112,7 +112,7 @@ body::-webkit-scrollbar-thumb {
 		position: absolute;
 		transform: translateY(-50%);
 		img {
-			animation: TXTImgIn 1500ms ease-in-out infinite;
+			animation: flipX 2s ease-in-out infinite;
 		}
 	}
 }
@@ -263,7 +263,27 @@ a {
 		object-fit: cover; 
 	}
 }
+@keyframes moveRightLoop {
+	0% {
+		transform: translateX(0) rotate(45deg);
+		opacity: 1;
+	}
 
+	49% {
+		transform: translateX(20px) rotate(45deg);
+		opacity: 0;
+	}
+
+	50% {
+		transform: translateX(-20px) rotate(45deg);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0) rotate(45deg);
+		opacity: 1;
+	}
+}
 .nxr-btn1 {
 	display: inline-block;
 	a {
@@ -279,6 +299,7 @@ a {
 			position: relative;
 			padding: 14px 24px;
 			border-radius: 60px;
+			white-space: nowrap;
 			font-family: var(--nxr-space);
 			background: linear-gradient(180deg, #E43649 0%, #B82132 100%);
 			i {
@@ -297,6 +318,16 @@ a {
 			align-items: center;
 			justify-content: center;
 			background: linear-gradient(180deg, #E43649 0%, #B82132 100%);
+			img {
+				transition: all 500ms ease-in-out;
+			}
+		}
+		&:hover {
+			.btn-icon {
+				img {
+					animation: moveRightLoop 0.7s linear;
+				}
+			}
 		}
 	}
 }
@@ -332,6 +363,9 @@ a {
 			mask-composite: exclude;
 			pointer-events: none;
 		}
+		&:hover {
+			background-color: var(--nxr-prime-c);
+		}
 	}
 }
 
@@ -355,6 +389,9 @@ a {
 		line-height: 1.2;
 		letter-spacing: -1px;
 		font-family: var(--nxr-space);
+		.split-line {
+			display: inline !important;
+		}
 		b {
 			font-weight: 500;
 			color: var(--nxr-prime-c);
@@ -365,6 +402,27 @@ a {
 			font-style: italic;
 			font-family: var(--nxr-playfair);
 		}
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes flipX {
+	0% {
+		transform: rotateX(0deg);
+	}
+	50% {
+		transform: rotateX(180deg);
+	}
+	100% {
+		transform: rotateX(360deg);
 	}
 }
 

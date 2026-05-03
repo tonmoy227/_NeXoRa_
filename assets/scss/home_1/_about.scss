@@ -32,6 +32,9 @@
 			font-style: italic;
 			font-family: var(--nxr-playfair);
 		}
+		.split-line {
+			display: inline !important;
+		}
 	}
 }
 
@@ -127,6 +130,7 @@
 		margin-bottom: 22px;
 		position: relative;
 		border-radius: 16px;
+		transition: all 500ms ease-in-out;
 		.inner-box {
 			top: 0;
 			left: 0;
@@ -148,6 +152,9 @@
 		.ab-shape1,
 		.ab-shape2 {
 			transform: scale(1);
+		}
+		.item-icon {
+			transform: scale(-1) rotate(180deg);
 		}
 	}
 }

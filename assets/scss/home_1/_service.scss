@@ -13,10 +13,24 @@
 		padding-bottom: 0;
 	}
 }
-
+@keyframes moving {
+	0% {
+		transform-origin: 50% 100%;
+		transform: skewX(-5deg);
+	}
+	50% {
+		transform-origin: 50% 100%;
+		transform: skewX(5deg);
+	}
+	100% {
+		transform-origin: 50% 100%;
+		transform: skewX(-5deg);
+	}
+}
 .nxr-service-title {
 	z-index: 6;
-	max-width: 420px;
+	width: 100%;
+	max-width: 450px;
 	position: relative;
 	@media #{$xxl,$xl,$lg,$md,$sm,$xs,$xxs} {
 		max-width: 100%;
@@ -71,6 +85,7 @@
 	transition: all 500ms ease-in-out;
 	box-shadow: -12px -12px 34px 0px #00000059;
 	filter: blur(2px);
+
 	@media #{$xxl,$xl,$lg,$md,$sm,$xs,$xxs} {
 		top: 0 !important;;
 		left: 0 !important;
@@ -116,6 +131,9 @@
 	.inner-img {
 		overflow: hidden;
 		border-radius: 20px;
+		clip-path: polygon( 100% 94.724%,100% 94.724%,99.927% 95.623%,99.717% 96.469%,99.382% 97.248%,98.936% 97.948%,98.392% 98.557%,97.762% 99.062%,97.061% 99.452%,96.3% 99.713%,95.493% 99.833%,94.653% 99.801%,32.041% 91.473%,32.041% 91.473%,31.687% 91.393%,31.36% 91.254%,31.062% 91.063%,30.795% 90.824%,30.563% 90.545%,30.367% 90.231%,30.21% 89.888%,30.095% 89.522%,30.024% 89.14%,30% 88.747%,30% 88.747%,29.844% 86.673%,29.393% 84.705%,28.671% 82.87%,27.703% 81.195%,26.513% 79.705%,25.126% 78.426%,23.566% 77.386%,21.858% 76.611%,20.026% 76.126%,18.095% 75.959%,18.095% 75.959%,16.57% 76.063%,15.102% 76.367%,13.705% 76.857%,12.39% 77.521%,11.168% 78.346%,10.052% 79.319%,9.053% 80.428%,8.184% 81.66%,7.457% 83.002%,6.882% 84.441%,6.882% 84.441%,6.666% 84.991%,6.396% 85.511%,6.075% 85.993%,5.708% 86.428%,5.301% 86.808%,4.857% 87.124%,4.381% 87.369%,3.877% 87.532%,3.351% 87.608%,2.807% 87.586%,2.807% 87.586%,2.339% 87.485%,1.899% 87.316%,1.494% 87.083%,1.126% 86.792%,0.802% 86.451%,0.526% 86.063%,0.303% 85.636%,0.138% 85.175%,0.035% 84.686%,0% 84.174%,0% 5.115%,0% 5.115%,0.062% 4.285%,0.243% 3.498%,0.532% 2.764%,0.919% 2.094%,1.395% 1.498%,1.95% 0.987%,2.574% 0.571%,3.257% 0.261%,3.989% 0.067%,4.762% 0%,95.238% 0%,95.238% 0%,96.011% 0.067%,96.743% 0.261%,97.426% 0.571%,98.05% 0.987%,98.605% 1.498%,99.081% 2.094%,99.468% 2.764%,99.757% 3.498%,99.938% 4.285%,100% 5.115%,100% 94.724% );
+
+
 	}
 	.inner-icon {
 		left: 36px;
@@ -163,6 +181,14 @@
 				border-radius: 100%;
 				justify-content: center;
 				background-color: #fff;
+				transition: all 500ms ease-in-out;
+			}
+			&:hover {
+				letter-spacing: 1px;
+				i {
+					color: #fff;
+					background-color: var(--nxr-prime-c);
+				}
 			}
 		}
 	}
@@ -248,8 +274,18 @@
 			border-radius: 100%;
 			border: 2px solid #010101;
 		}
+		.lf-1 {
+			-webkit-animation: moving 3s linear infinite;
+			animation: moving 3s linear infinite;
+			-webkit-animation-delay: 3s;
+			animation-delay: 3s;
+		}
 		.lf-2 {
 			margin-left: -20px;
+			-webkit-animation: moving 3s linear infinite;
+			animation: moving 3s linear infinite;
+			-webkit-animation-delay: 2s;
+			animation-delay: 2s;
 		}
 	}
 	.nxr-ser-rate-bottom {

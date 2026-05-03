@@ -24,6 +24,9 @@
 	width: 500px;
 	height: 1252px;
 	position: absolute;
+	@media #{$xl,$lg,$md,$sm,$xs,$xxs} {
+		display: none;
+	}
 	.swiper-slide {
 		overflow: hidden;
 		opacity: .7;
@@ -107,6 +110,10 @@
 	max-width: 385px;
 	position: absolute;
 	justify-content: space-between;
+	@media #{$xxs} {
+		position: static;
+		margin-top: 50px;
+	}
 	.views-button-prev,
 	.views-button-next {
 		width: 52px;
@@ -119,6 +126,11 @@
 		border-radius: 100%;
 		background: #FFFFFF29;
 		justify-content: center;
+		transition: all 500ms ease-in-out;
+		&:hover {
+			color: #000;
+			background-color: #fff;
+		}
 		&:before {
 			content: "";
 			position: absolute;

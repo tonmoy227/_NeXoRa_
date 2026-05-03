@@ -164,6 +164,22 @@ Last change:    00/00/00
 		pauseOnHover: true,
 		startVisible:true,
 	});
+
+	jQuery(document).ready(function (o) {
+		0 < o(".navSidebar-button").length &&
+		o(".navSidebar-button").on("click", function (e) {
+			e.preventDefault(), e.stopPropagation(), o(".info-group").addClass("isActive");
+		}),
+		0 < o(".close-side-widget").length &&
+		o(".close-side-widget").on("click", function (e) {
+			e.preventDefault(), o(".info-group").removeClass("isActive");
+		}),
+		o(".xs-sidebar-widget").on("click", function (e) {
+			e.stopPropagation();
+		})
+	});
+
+
 	// windows-loaded-before-functions
 	document.addEventListener("DOMContentLoaded", function () {
 		window.addEventListener('load', function(){
@@ -175,16 +191,161 @@ Last change:    00/00/00
 				preloader.classList.add("preloaded");
 				setTimeout(function () {
 					preloader.remove();
+
+
+					$(document).ready(function() {
+						var st = $(".tx-split-text");
+						if(st.length == 0) return;
+						gsap.registerPlugin(SplitText);
+						st.each(function(index, el) {
+							el.split = new SplitText(el, { 
+								type: "lines,words,chars",
+								linesClass: "split-line"
+							});
+							gsap.set(el, { perspective: 400 });
+
+							if( $(el).hasClass('split-in-right') ){
+								gsap.set(el.split.chars, {
+									scale: 0,
+									opacity: 0,
+									rotation: 90,
+									ease: "elastic.in(1,0.3)",
+								});
+							}
+							el.anim = gsap.to(el.split.chars, {
+								scrollTrigger: {
+									trigger: el,
+									start: "top 90%",
+								},
+								x: "0",
+								y: "0",
+								rotateX: "0",
+								rotation: 0,
+								rotationX: "0",
+								color: 'inherit',
+								webkitTextStroke: "0px white",
+								scale: 1,
+								opacity: 1,
+								duration: 0.4, 
+								stagger: 0.02,
+							});
+						});
+					});
+
+					const NXRHEO = gsap.timeline();
+					NXRHEO
+					.from(".nxr-btn-grp", { x: 200, opacity: 0, duration: 1, transformOrigin: "top",  ease: "power1.out" })
+					.from(".nxr-hr-desc", { x: 100, opacity: 0, duration: 1, transformOrigin: "top",  ease: "power1.out" },"< = .5")
+					.from(".nxr-hero-card-wrapper", { x: 200, opacity: 0, duration: 1, transformOrigin: "top",  ease: "power1.out" },"< = .5")
+					.from(".nxr-hero-content .nxr-hero-img2", { xPercent: -20, opacity: 0, duration: 1.5, transformOrigin: "top",  ease: "power1.out" },"< =")
+
 				}, 1000 ) ;
 
 			}
 			setTimeout(function() {
-				
+				afterPageLoad();
 			}, 700);
 		})		
 	});
 	
+	function afterPageLoad() {
 
+
+		if (window.matchMedia("(min-width: 1200px)").matches) { 
+
+
+			if ($("#nx_hero_anim").length) {
+
+				const nxWrap = document.getElementById("nx_hero_anim");
+				const nXimg = nxWrap.querySelector("img");
+				const waImageURL = nXimg.getAttribute("src");
+				nXimg.remove();
+
+				const { width: nxWidth, height: nxHeight } = nxWrap.getBoundingClientRect();
+
+				const nxUP = new PIXI.Application({
+					width: nxWidth,
+					height: nxHeight,
+					transparent: true,
+					autoDensity: true,
+					resolution: window.devicePixelRatio,
+				});
+				nxUP.view.style.pointerEvents = "none";
+
+				nxWrap.appendChild(nxUP.view);
+
+				const nxDispl = "assets/img/hero/h1-bg-noise-1.gif";
+
+				nxUP.loader
+				.add("nxHero", waImageURL)
+				.add("nxDIP", nxDispl)
+				.load((waLoader, nxResourse) => {
+					const nxCountain = new PIXI.Container();
+					nxUP.stage.addChild(nxCountain);
+
+					const nxHero = new PIXI.Sprite(nxResourse.nxHero.texture);
+					nxCountain.addChild(nxHero);
+
+					const nxTexture = nxHero.texture.width / nxHero.texture.height;
+					const nxCountainRatio = nxWidth / nxHeight;
+
+					if (nxCountainRatio > nxTexture) {
+						nxHero.width = nxWidth;
+						nxHero.height = nxWidth / nxTexture;
+					} else {
+						nxHero.height = nxHeight;
+						nxHero.width = nxHeight * nxTexture;
+					}
+
+					nxHero.x = (nxWidth - nxHero.width) / 2;
+					nxHero.y = (nxHeight - nxHero.height) / 2;
+
+					const nxDispri = new PIXI.Sprite(nxResourse.nxDIP.texture);
+					nxDispri.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+					const nxDfilter = new PIXI.filters.DisplacementFilter(nxDispri);
+					nxDispri.scale.set(2);
+					nxUP.stage.addChild(nxDispri);
+					nxCountain.filters = [nxDfilter];
+
+					function waPlayDistortionIn() {
+						gsap.fromTo(nxDfilter.scale,
+							{ x: 220, y: 220 },
+							{ x: 0, y: 0, duration: 2,  ease: "power1.out", }
+							);
+					}
+					waPlayDistortionIn();
+
+					nxUP.ticker.add(() => {
+						nxDispri.x += 1;
+						nxDispri.y += 1;
+					});
+				});
+			}
+		}
+
+		gsap.utils.toArray(".nx-text p").forEach(paragraph => {
+			let timeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: paragraph,
+					start: "top 90%",
+					end: "bottom 60%",
+					toggleActions: "play none none none"
+				}
+			});
+			let splitText = new SplitText(paragraph, { type: "lines" });
+			gsap.set(paragraph, { perspective: 400 });
+			timeline.from(splitText.lines, {
+				opacity: 0,
+				y: 20,
+				transformOrigin: "top center -50",
+				force3D: true,
+				duration: 1,
+				delay: 0.5,
+				stagger: 0.1
+			});
+		});
+
+	}
 
 	if ($('.nxr-hero-card-slider').length > 0 ) {
 		const slider = new Swiper('.nxr-hero-card-slider', {
@@ -343,7 +504,7 @@ Last change:    00/00/00
 	}
 
 
-	if (window.matchMedia("(min-width: 1200px)").matches) { 
+	if (window.matchMedia("(min-width: 1600px)").matches) { 
 		var nxWC2 = gsap.timeline({
 			scrollTrigger: {
 				trigger: '.nxr-team-content-wrap',
@@ -490,6 +651,293 @@ Last change:    00/00/00
 			ease: "none",
 		}); 
 	});
+
+
+	const buttons = document.querySelectorAll(".nxr-btn1 a span, .nxr-btn2 a, .nxr-btn1 button span ");
+	buttons.forEach(btn => {
+		const split = new SplitText(btn, { type: "chars" });
+		gsap.set(split.chars, {
+			y: 0,
+			opacity: 1
+		});
+		btn.addEventListener("mouseenter", () => {
+			split.chars.forEach((char, index) => {
+				if (index % 2 === 0) {
+
+					gsap.fromTo(
+						char,
+						{
+							x: -20,
+							y: 20,
+							rotate: 180,
+							opacity: 0,
+							scale: 0.5
+						},
+						{
+							x: 0,
+							y: 0,
+							rotate: 0,
+							opacity: 1,
+							scale: 1,
+							duration: 0.5,
+							delay: index * 0.03,
+							ease: "back.out(2)"
+						}
+						);
+
+				}
+				else {
+
+					gsap.fromTo(
+						char,
+						{
+							x: 20,
+							y: -20,
+							rotate: -180,
+							opacity: 0,
+							scale: 1.5
+						},
+						{
+							x: 0,
+							y: 0,
+							rotate: 0,
+							opacity: 1,
+							scale: 1,
+							duration: 0.5,
+							delay: index * 0.03,
+							ease: "power3.out"
+						}
+						);
+
+				}
+
+			});
+
+		});
+
+	});
+
+
+	$(document).ready(function() {
+		var st = $(".nxr-split-text");
+		if(st.length == 0) return;
+		gsap.registerPlugin(SplitText);
+		st.each(function(index, el) {
+			el.split = new SplitText(el, { 
+				type: "lines,words,chars",
+				linesClass: "split-line"
+			});
+			gsap.set(el, { perspective: 400 });
+
+			if( $(el).hasClass('split-in-right') ){
+				gsap.set(el.split.chars, {
+					scale: 0,
+					opacity: 0,
+					rotationY: 90,
+					ease: "elastic.in(1,0.3)",
+				});
+			}
+			el.anim = gsap.to(el.split.chars, {
+				scrollTrigger: {
+					trigger: el,
+					start: "top 90%",
+				},
+				x: "0",
+				y: "0",
+				rotateX: "0",
+				rotation: 0,
+				rotationY: "0",
+				color: 'inherit',
+				webkitTextStroke: "0px white",
+				scale: 1,
+				opacity: 1,
+				duration: 0.4, 
+				stagger: 0.02,
+			});
+		});
+	});
+
+
+	gsap.utils.toArray(' .left_view').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 4,
+				start: "top 100%",
+				end: "top 30%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, {  scale: 1, x: "300"})
+	});
+
+	gsap.utils.toArray(' .left_view2').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 4,
+				start: "top 100%",
+				end: "top 30%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, {  scale: 1, x: "-300"})
+	});
+	gsap.utils.toArray(' .left_view3').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 4,
+				start: "top 100%",
+				end: "top 30%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, {  scale: 1, opacity: 0, x: "-50"})
+	});
+
+	gsap.utils.toArray(' .top_view').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 4,
+				start: "top 100%",
+				end: "top 30%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, {  scale: 1, y: "300"})
+	});
+	gsap.utils.toArray(' .top_view2').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 4,
+				start: "top 100%",
+				end: "top 70%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, {  scale: 1, y: "100"})
+	});
+
+	gsap.utils.toArray(' .nxr-portfolio-top .nxr-port-year .mdl-img').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 4,
+				start: "top 80%",
+				end: "top 30%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, {  opacity: 0, width: 0})
+	});
+
+
+	var AXFT = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".nxr-about-card-wrap",
+			start: "top 70%",
+			toggleActions: "play reverse play reverse",
+			markers: false,
+		},
+	})
+	AXFT
+	.from(".nxr-ab-card", {
+		xPercent: 100,
+		opacity: 0,
+		ease: "back.out(1.5)",
+		duration: 1, 
+		stagger: -.2,
+	})
+
+
+	var AXC = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".nxr-service-content",
+			start: "top 30%",
+			toggleActions: "play reverse play reverse",
+			markers: false,
+		},
+	})
+	AXC
+	.from(".nxr-ser-ratting .nxr-ser-rate-top li", {
+		yPercent: 100,
+		opacity: 0,
+		ease: "back.out(1.5)",
+		duration: 1, 
+		stagger: -.2,
+	})
+
+
+	if (window.matchMedia("(min-width: 1200px)").matches) { 
+		var TVCONT = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.nxr-team-text-wrap',
+				start: "top 40%",
+				toggleActions: 'play none none reverse',
+				markers: false,
+			}
+
+		});
+		TVCONT
+		.from(".nxr-team-title .middle-line .img-wrapper .item-img:nth-child(3)", { opacity: 0,  xPercent: -100, duration: 2,   ease: "elastic.out(1,0.7)" })
+		.from(".nxr-team-title .middle-line .img-wrapper .item-img:nth-child(2)", { opacity: 0,  xPercent: -100, duration: 2,   ease: "elastic.out(1,0.7)" },"<= .3")
+		.from(".nxr-team-title .middle-line .img-wrapper .item-img:nth-child(1)", { opacity: 0,  xPercent: -100, duration: 2,   ease: "elastic.out(1,0.7)" },"<= .3")
+		.from(".nxr-team-title .last-line .img-pair-1 .item-img:nth-child(1)", { opacity: 0,  xPercent: -100, duration: 2,   ease: "elastic.out(1,0.7)" },"<= .3")
+		.from(".nxr-team-title .last-line .img-pair-1 .item-img:nth-child(2)", { opacity: 0,  xPercent: 100, duration: 2,   ease: "elastic.out(1,0.7)" },"<= .3")
+
+	};
+
+	$('.ax_item_active').on('mouseover', function () {
+		var $group = $(this).closest('[data-nx-group]');
+		$group.find('.ax_item_active').removeClass('active');
+		$(this).addClass('active');
+	});
+
+	if (window.matchMedia("(min-width: 1200px)").matches) { 
+		var NXCN = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.nxr-contact-cta-wrap',
+				start: "top 40%",
+				toggleActions: 'play none none reverse',
+				markers: false,
+			}
+
+		});
+		NXCN
+		.from(".nxr-cnt-img-wrap .nxr-cn-reel-marquee .item-img:nth-child(1)", { opacity: 0,  xPercent: -100, duration: 2,   ease: "power1.out" })
+		.from(".nxr-cnt-img-wrap .nxr-cn-reel-marquee .item-img:nth-child(2)", { opacity: 0,  xPercent: -100, duration: 2,   ease: "power1.out" },"<= .3")
+		.from(".nxr-cnt-img-wrap .nxr-cn-reel-marquee .item-img:nth-child(3)", { opacity: 0,  xPercent: -100, duration: 2,   ease: "power1.out" },"<= .3")
+		
+
+	};
+
 
 
 })(jQuery);
