@@ -2557,6 +2557,7 @@ a:hover, a:focus {
   max-width: 545px;
   font-weight: 700;
   letter-spacing: -3px;
+  font-family: var(--nxr-space);
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px), only screen and (min-width: 481px) and (max-width: 575px), (max-width: 480px) {
   .nxr-hero-text .nxr-hr-title {
