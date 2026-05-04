@@ -2829,6 +2829,7 @@ a:hover, a:focus {
 }
 .nxr-hero-partner-wrap .nxr-hero-partner h3 {
   color: #fff;
+  font-size: 18px;
   font-weight: 500;
   margin-bottom: 0;
   letter-spacing: -1px;
@@ -2899,6 +2900,7 @@ a:hover, a:focus {
   color: #000000;
   font-size: 52px;
   max-width: 1030px;
+  line-height: 1.05;
   letter-spacing: -1px;
   font-family: var(--nxr-space);
 }
