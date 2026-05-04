@@ -2938,6 +2938,39 @@ a:hover, a:focus {
   letter-spacing: -1px;
   font-family: var(--nxr-space);
 }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .nxr-about-title .ab_title {
+    font-size: 45px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .nxr-about-title .ab_title {
+    font-size: 38px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .nxr-about-title .ab_title {
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 575px) {
+  .nxr-about-title .ab_title {
+    font-size: 34px;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 480px) {
+  .nxr-about-title .ab_title {
+    font-size: 30px;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 360px) {
+  .nxr-about-title .ab_title {
+    font-size: 28px;
+    letter-spacing: 0px;
+  }
+}
 .nxr-about-title .ab_title b {
   font-weight: 500;
   color: var(--nxr-prime-c);
@@ -3083,7 +3116,6 @@ a:hover, a:focus {
   font-size: 20px;
   font-weight: 500;
   padding-bottom: 8px;
-  letter-spacing: -1px;
 }
 .nxr-ab-card .item-text p {
   line-height: 1.5;
@@ -3901,7 +3933,7 @@ a:hover, a:focus {
   width: 128px;
   height: 128px;
   margin: 0 auto;
-  font-size: 30px;
+  font-size: 38px;
   border-radius: 100%;
   position: absolute;
   background-color: #fff;
@@ -6251,15 +6283,16 @@ a:hover, a:focus {
   }
 }
 .nxr-faq1-content .accordion-button:not(.collapsed) {
-  color: #000000;
+  color: var(--nxr-prime-c);
   -webkit-box-shadow: none;
           box-shadow: none;
+  font-weight: 500;
   background-color: #F5F5F5;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }
 .nxr-faq1-content .accordion-button:not(.collapsed) span {
-  color: #000000;
+  color: var(--nxr-prime-c);
 }
 .nxr-faq1-content .accordion-button:not(.collapsed) i {
   opacity: 1;
@@ -6273,7 +6306,6 @@ a:hover, a:focus {
 @media (max-width: 480px) {
   .nxr-faq1-content .accordion-button:not(.collapsed):after {
     display: none;
-    background-color: transparent;
   }
 }
 
@@ -6339,7 +6371,7 @@ a:hover, a:focus {
   color: #000000;
   font-size: 14px;
   line-height: 1;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 .nxr-blog-item .item-author .item_img_text .item-text h3 {
   line-height: 1;
@@ -6494,6 +6526,8 @@ a:hover, a:focus {
   font-family: var(--nxr-playfair);
   color: var(--nxr-prime-c);
   line-height: 1;
+  z-index: 1;
+  overflow: hidden;
   padding: 20px 24px;
   border-radius: 16px;
   position: relative;
@@ -6514,9 +6548,24 @@ a:hover, a:focus {
   mask-composite: exclude;
   pointer-events: none;
 }
+.nxr-inst-follow a:after {
+  left: 0;
+  z-index: -1;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  content: "";
+  position: absolute;
+  border-radius: 16px;
+  background: var(--nxr-prime-c);
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
 .nxr-inst-follow a:hover {
   color: #fff;
-  background: var(--nxr-prime-c);
+}
+.nxr-inst-follow a:hover:after {
+  height: 100%;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px), only screen and (min-width: 481px) and (max-width: 575px), (max-width: 480px) {

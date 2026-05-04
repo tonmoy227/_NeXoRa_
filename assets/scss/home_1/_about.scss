@@ -23,6 +23,27 @@
 		line-height: 1.08;
 		letter-spacing: -1px;
 		font-family: var(--nxr-space);
+		@media #{$lg} {
+			font-size: 45px;
+		}
+		@media #{$md} {
+			font-size: 38px;
+		}
+		@media #{$sm} {
+			font-size: 36px;
+		}
+		@media #{$xs} {
+			font-size: 34px;
+			letter-spacing: 0px;
+		}
+		@media #{$xxs} {
+			font-size: 30px;
+			letter-spacing: 0px;
+		}
+		@media #{$xxxs} {
+			font-size: 28px;
+			letter-spacing: 0px;
+		}
 		b {
 			font-weight: 500;
 			color: var(--nxr-prime-c);
@@ -143,7 +164,6 @@
 			font-size: 20px;
 			font-weight: 500;
 			padding-bottom: 8px;
-			letter-spacing: -1px;
 		}
 		p {
 			line-height: 1.5;

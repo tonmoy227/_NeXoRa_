@@ -255,13 +255,14 @@
 		}
 	}
 	.accordion-button:not(.collapsed) { 
-		color: #000000;
+		color: var(--nxr-prime-c);
 		box-shadow: none;
+		font-weight: 500;
 		background-color: #F5F5F5;
 		border-bottom-left-radius: 16px;
 		border-bottom-right-radius: 16px;
 		span {
-			color: #000000;
+			color: var(--nxr-prime-c);
 		}
 		i {
 			opacity: 1;
@@ -273,7 +274,6 @@
 			background-color: var(--nxr-prime-c);
 			@media #{$xxs} {
 				display: none;
-				background-color: transparent;
 			}
 		}
 	}
