@@ -373,6 +373,7 @@ a {
 	.subtitle {
 		color: #000000;
 		font-weight: 500;
+		margin-bottom: 8px;
 		font-family: var(--nxr-space);
 		i {
 			font-style: normal;
@@ -386,9 +387,30 @@ a {
 		color: #000000;
 		font-size: 52px;
 		font-weight: 700;
-		line-height: 1.2;
+		line-height: 1.08;
 		letter-spacing: -1px;
 		font-family: var(--nxr-space);
+		@media #{$lg} {
+			font-size: 45px;
+		}
+		@media #{$md} {
+			font-size: 38px;
+		}
+		@media #{$sm} {
+			font-size: 36px;
+		}
+		@media #{$xs} {
+			font-size: 34px;
+			letter-spacing: 0px;
+		}
+		@media #{$xxs} {
+			font-size: 30px;
+			letter-spacing: 0px;
+		}
+		@media #{$xxxs} {
+			font-size: 28px;
+			letter-spacing: 0px;
+		}
 		.split-line {
 			display: inline !important;
 		}

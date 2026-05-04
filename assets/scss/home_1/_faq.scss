@@ -41,11 +41,18 @@
 				color: #000000;
 			}
 			.nxr-btn1 a span {
-				    padding: 7px 15px;
+				padding: 7px 15px;
+				background: linear-gradient(180deg, #716F6F 0%, #000000 100%);
+
 			}
 			.nxr-btn1 a .btn-icon {
 				width: 40px;
 				height: 40px;
+				background: linear-gradient(180deg, #716F6F 0%, #000000 100%);
+
+			}
+			.nxr-btn1 a i {
+				top: 1px;
 			}
 		}
 	}
@@ -181,6 +188,7 @@
 		margin: 0 auto;
 		font-size: 22px;
 		font-weight: 400;
+		color: #000000;
 		position: relative;
 		padding: 27px 24px;
 		background-color: #fff;
@@ -219,7 +227,7 @@
 	.accordion-button::after {
 		top: 26px;
 		right: 25px;
-		opacity: .7;
+		opacity: 1;
 		width: 28px;
 		color: #fff;
 		height: 28px;

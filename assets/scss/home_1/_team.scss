@@ -105,6 +105,17 @@
 			justify-content: center;
 		}
 		.img-pair-1 {
+			position: relative;
+			&:before {
+				top: 50%;
+				left: -200px;
+				height: 1px;
+				width: 290px;
+				content: "";
+				opacity: 0.12;
+				position: absolute;
+				background-color: #000000;
+			}
 			@media #{$lg,$md,$sm,$xs,$xxs} {
 				display: none !important;
 			}
@@ -168,12 +179,12 @@
 	}
 }
 @keyframes shake {
-  0%   { transform: translateY(0); }
-  20%  { transform: translateY(-6px); }
-  40%  { transform: translateY(4px); }
-  60%  { transform: translateY(-3px); }
-  80%  { transform: translateY(2px); }
-  100% { transform: translateY(0); }
+	0%   { transform: translateY(0); }
+	20%  { transform: translateY(-6px); }
+	40%  { transform: translateY(4px); }
+	60%  { transform: translateY(-3px); }
+	80%  { transform: translateY(2px); }
+	100% { transform: translateY(0); }
 }
 .nxr-team-feed-content {
 	@media #{$xxl,$xl,$lg,$md,$sm,$xs,$xxs} {
@@ -236,8 +247,8 @@
 				color: #fff;
 				font-size: 24px;	
 				font-weight: 700;
-				padding-bottom: 10px;
-				letter-spacing: -2px;
+				padding-bottom: 4px;
+				letter-spacing: -1px;
 			}
 			span {
 				color: #fff;

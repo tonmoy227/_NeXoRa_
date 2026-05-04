@@ -81,7 +81,6 @@
 	max-width: 440px;
 	position: absolute;
 	border-radius: 20px;
-	background-color: #FFAEAF;
 	transition: all 500ms ease-in-out;
 	box-shadow: -12px -12px 34px 0px #00000059;
 	filter: blur(2px);
@@ -105,29 +104,41 @@
 		left: 150px;
 		z-index: 4;
 		transform: rotate(-12deg);
-		background-color: #B8B1FE;
 	}
 	&:is(.ver_3) {
 		top: 30px;
 		left: 75px;
 		z-index: 3;
 		transform: rotate(-22deg);
-		background-color: #FABE91;
 	}
 	&:is(.ver_4) {
 		left: 23px;
 		top: 50px;
 		z-index: 2;
 		transform: rotate(-32deg);
-		background-color: #FFEDAA;
 	}
 	&:is(.ver_5) {
 		left: -15px;
 		top: 80px;
 		z-index: 1;
 		transform: rotate(-45deg);
+	}
+	&:is(.itm_1) {
+		background-color: #FFAEAF;
+	}
+	&:is(.itm_2) {
+		background-color: #B8B1FE;
+	}
+	&:is(.itm_3) {
+		background-color: #FABE91;
+	}
+	&:is(.itm_4) {
+		background-color: #FFEDAA;
+	}
+	&:is(.itm_5) {
 		background-color: #D1FFB3;
 	}
+
 	.inner-img {
 		overflow: hidden;
 		border-radius: 20px;

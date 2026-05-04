@@ -96,7 +96,7 @@
 			max-width: 475px;
 			font-weight: 500;
 			padding-bottom: 8px;
-			letter-spacing: -1px;
+			letter-spacing: 0px;
 			@media #{$md,$sm,$xs,$xxs} {
 				font-size: 22px;
 			}

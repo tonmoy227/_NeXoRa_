@@ -621,7 +621,7 @@ Last change:    00/00/00
 		let proTitle = gsap.timeline({
 			scrollTrigger: {
 				trigger: ".nxr-work-process-sec",
-				start: "top 0%", 
+				start: "top 30%", 
 				end: "top -30%",
 				toggleActions: "play none none reverse",
 				scrub: true,
@@ -629,8 +629,8 @@ Last change:    00/00/00
 			},
 		});
 
-		proTitle.to(".nxr-work-pro-title .nxr-wrp-left-title", { xPercent: -85});
-		proTitle.to(".nxr-work-pro-title .nxr-wrp-right-title", { xPercent: 85},"<");
+		proTitle.to(".nxr-work-pro-title .nxr-wrp-left-title", { xPercent: -55});
+		proTitle.to(".nxr-work-pro-title .nxr-wrp-right-title", { xPercent: 65},"<");
 	}
 
 	gsap.utils.toArray(".img-parallax").forEach(function(container) {

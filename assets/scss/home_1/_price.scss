@@ -57,6 +57,7 @@
 		}
 		.nav-link.active {
 			background-color: #fff;
+			box-shadow: 3px 3px 6px 0px #0000001A;
 		}
 	}
 }
@@ -193,9 +194,10 @@
 		li {
 			gap: 8px;
 			display: flex;
+			font-size: 18px;
 			color: #000000;
 			align-items: center;
-			margin-bottom: 22px;
+			margin-bottom: 16px;
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -205,6 +207,7 @@
 		}
 	} 
 	&:is(.popular) {
+		background-size: cover;
 		.item-top {
 			.item-icon {
 				background: #FFFFFF24;
@@ -254,6 +257,7 @@
 	max-width: 1296px; 
 	p {
 		color: #000000;
+		font-size: 18px;
 		max-width: 340px;	
 	}
 	.nxr-pr-support {

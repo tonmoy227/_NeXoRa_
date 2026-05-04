@@ -1,3 +1,20 @@
+@keyframes borderpls2 {
+	0% {
+		-webkit-box-shadow: 0 0 0 0 #34C759;
+		box-shadow: 0 0 0 0 #34C759;
+	}
+	70% {
+		-webkit-box-shadow: 0 0 0 10px #34C759;
+		box-shadow: 0 0 0 10px #34C759;
+		opacity: 0;
+	}
+	to {
+		-webkit-box-shadow: 0 0 0 0 #34C759;
+		box-shadow: 0 0 0 0 #34C759;
+		opacity: 0;
+	}
+}
+
 .nxr-contact-content {
 	gap: 20px;
 	display: flex;
@@ -161,14 +178,18 @@
 			padding: 6px 18px 6px 32px;
 			background-color: #FFFFFF1F;
 			&:before {
-				top: 10px;
-				left: 10px;
-				width: 16px;
-				content: '';
-				height: 16px;
+				top: 13px;
+				left: 15px;
+				width: 8px;
+				z-index: 1;
+				content: "";
+				height: 8px;
 				position: absolute;
 				border-radius: 100%;
-				background: #34C7591F;
+				background: rgba(52, 199, 89, 0.1215686275);
+				-webkit-animation: borderpls2 1.5s infinite cubic-bezier(0.4, 0, 1, 1) both;
+				animation: borderpls2 1.5s infinite cubic-bezier(0.4, 0, 1, 1) both;
+
 			}
 			&:after {
 				top: 13px;

@@ -245,11 +245,11 @@
 		p {
 			opacity: 0;
 			color: #fff;
-			opacity: .72;
 			font-size: 15px;
 			max-width: 230px;
 			margin-bottom: 0;
 			visibility: hidden;
+			opacity: .72 !important;
 			transform: translateY(50px);
 			transition: 1200ms var(--cube-1);
 		}
